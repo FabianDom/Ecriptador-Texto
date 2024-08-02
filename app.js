@@ -14,6 +14,9 @@ let llavesDesencriptacion = {
   ufat: "u",
 };
 
+let regex = /[A-Z0-9_\u00C0-\u00FF!\"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~]/;
+
+
 function encriptarTexto() {
   // Obtener el texto ingresado por el usuario desde el campo de entrada
   let textoUsuario = document.getElementById("texto_encriptador").value;
@@ -36,12 +39,11 @@ function encriptarTexto() {
   // Mostrar el texto encriptado.
   let textoEncriptadoFinal = document.getElementById("texto-encriptado");
   textoEncriptadoFinal.innerHTML = textoUsuarioEncriptado;
-// verificar si el texto se encuentra encriptado
+  // verificar si el texto se encuentra encriptado
   for (const propiedad in llavesDesencriptacion) {
     if (textoUsuario.includes(propiedad)) {
       let textoUsuarioFinal = document.getElementById("texto-encriptado");
       textoUsuarioFinal.innerHTML = "El texto esta encriptado";
-      
     }
   }
 }
@@ -76,6 +78,27 @@ function limpiarCampoTextoEncriptado() {
   }
 }
 
+function caracteresExcluidos () {
+  let textoUsuario = document.getElementById("texto_encriptador").value;
+  let textoCaracteres = document.getElementById("texto-caracteres");
+  let botonEncriptar = document.getElementById("boton_encriptar");
+  let botonDesencriptar = document.getElementById("boton_desencriptar");
+  if (regex.test(textoUsuario)) {
+    textoCaracteres.innerHTML = 'No se permite mayusculas ni acentos';
+    botonEncriptar.disabled = true;
+    botonDesencriptar.disabled = true;
+  } else {
+    textoCaracteres.innerHTML = ''
+    botonEncriptar.disabled = false;
+    botonDesencriptar.disabled = false;
+}
+}
+
+
+
 document
   .getElementById("texto_encriptador")
-  .addEventListener("input", limpiarCampoTextoEncriptado);
+  .addEventListener("input", limpiarCampoTextoEncriptado );
+  document
+  .getElementById("texto_encriptador")
+  .addEventListener("input", caracteresExcluidos );

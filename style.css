@@ -1,61 +1,99 @@
 * {
-    margin: 0;
-    padding: 0;
-    
+  margin: 0;
+  padding: 0;
 }
 
 #texto_encriptador::placeholder {
-    color: #0A3871; 
-    font-size: 24px ;
+  color: #0a3871;
+  font-size: 24px;
 }
 
-.contenedor{
- padding: 20px;
- display: flex;
- box-sizing: border-box
+.contenedor {
+  padding: 20px;
+  display: flex;
+  box-sizing: border-box;
+  height: 80vh;
 }
 
-.textarea_estilo{
-    border: none;
-    resize: none;
+.textarea_estilo {
+  border: none;
+  resize: none;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 32px;
+}
+.textarea_estilo:focus {
+  border: none;
+  outline: none;
 }
 
-.izquierda{
-    width: 60%;
-    display: flex;
-    justify-content: center;
+.izquierda {
+  width: 65%;
+  display: flex;
+  justify-content: center;
 }
 
 .derecha {
-    border: 1px solid black;
-    width: 40%;
-    display: flex;
-    justify-content: center;
+  border: 1px solid black;
+  border-radius: 5px;
+ padding: 5px;
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.texto_resultado {
+  text-align: left;
+  overflow: auto;
+  word-wrap: break-word; /* Permite saltos de línea en palabras largas */
 }
 
 .contenedor_botones {
-    width: 60%;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .boton_encriptar {
-    width: 30%;
-    padding: 8px;
-    background-color: #0A3871;
-    border-radius: 24px;
-    color: white;
-    border: 1px solid #0A3871;
-    cursor: pointer;
+  width: 30%;
+  padding: 8px;
+  background-color: #0a3871;
+  border-radius: 24px;
+  color: white;
+  border: 1px solid #0a3871;
+  cursor: pointer;
+}
+.boton_encriptar:disabled {
+  background-color: grey;
+  color: white;
+  cursor: not-allowed;
+  border: grey;
 }
 
-.boton_desencriptar{
-    width: 30%;
-    padding: 8px;
-    background-color: #D8DFE8;
-    border-radius: 24px;
-    color: #0A3871;
-    border: 1px solid #0A3871;
-    cursor: pointer;
+.boton_desencriptar {
+  width: 30%;
+  padding: 8px;
+  background-color: #d8dfe8;
+  border-radius: 24px;
+  color: #0a3871;
+  border: 1px solid #0a3871;
+  cursor: pointer;
+}
+
+.boton_desencriptar:disabled {
+  background-color: grey;
+  color: white;
+  cursor: not-allowed;
+  border: grey;
+}
+
+.contenedor_copiar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
