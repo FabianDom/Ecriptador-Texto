@@ -35,24 +35,29 @@ function encriptarTexto() {
     }
   }
   // Mostrar el texto encriptado.
-  let textoEncriptadoFinal = document.getElementById("texto-encriptado");
-  textoEncriptadoFinal.innerHTML = textoUsuarioEncriptado;
+    let textoEncriptadoFinal = document.getElementById("texto-encriptado");
+    textoEncriptadoFinal.innerHTML = textoUsuarioEncriptado;
+ 
   limpiarBotonCopiar ();
-  
+
+
+ 
   // verificar si el texto se encuentra encriptado
   let verficarTexto = document.getElementById("verificar_mensaje");
+  let botonCopiar = document.getElementById("boton_copiar");
   for (const propiedad in llavesDesencriptacion) {
     if (textoUsuario.includes(propiedad)) {
       textoEncriptadoFinal.innerHTML = '';
       verficarTexto.innerHTML = "El texto esta encriptado";
       if (verficarTexto) {
         verficarTexto.style.display = 'block';
+        botonCopiar.style.display = 'none';
       } else {
         verficarTexto.style.display = 'none';
       }
     } 
   }
-
+   
 }
 
 function desencriptarTexto() {
@@ -73,6 +78,7 @@ function desencriptarTexto() {
   }
 
   // Mostrar el texto desencriptado en el elemento HTML con id 'texto-encriptado'
+  
   let textoDesencriptadoFinal = document.getElementById("texto-encriptado");
   textoDesencriptadoFinal.innerHTML = textoUsuarioDesencriptado;
 
@@ -139,8 +145,12 @@ async function botonCopiar() {
 }
 
 function limpiarBotonCopiar () {
+  let textoUsuario = document.getElementById("texto_encriptador").value;
   let textoEncriptado = document.getElementById("texto-encriptado");
   let botonCopiar = document.getElementById("boton_copiar");
+  if (textoUsuario.trim() === ""){
+    return
+  }
   if(textoEncriptado) {
     botonCopiar.style.display = 'block';
   } else {
