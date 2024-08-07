@@ -16,12 +16,14 @@
             <textarea class="textarea_estilo" name="texto" id="texto_encriptador" placeholder="Ingrese el texto aqui" cols="50" rows="20"></textarea>
         </div>
         <div class="derecha">
+            <div id="verificar_mensaje" class="mensaje_encriptado"></div>
+            <div id="mensaje_copiado" class="mensaje_temporal"></div>
             <div class="texto_resultado"><p  id="texto-encriptado"></p></div>
             
-            <div class="contenedor_copiar"><button>Copiar</button></div>  
+            <div class="contenedor_copiar" onclick="botonCopiar();" id="boton_copiar"><button >Copiar</button></div>  
         </div>
     </div>
-    <p id="texto-caracteres"></p>
+    <p class="texto-caracteres" id="texto-caracteres"></p>
         <div class="contenedor_botones">
             <button class="boton_encriptar" onclick="encriptarTexto()" id="boton_encriptar">Encriptar</button>
             <button class="boton_desencriptar" onclick="desencriptarTexto()" id="boton_desencriptar">Desencriptar</button>

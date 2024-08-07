@@ -8,6 +8,10 @@
   font-size: 24px;
 }
 
+body {
+  background-color: #E5F4E3;
+}
+
 .contenedor {
   padding: 20px;
   display: flex;
@@ -16,6 +20,7 @@
 }
 
 .textarea_estilo {
+  background-color: #E5F4E3;
   border: none;
   resize: none;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -24,6 +29,7 @@
 .textarea_estilo:focus {
   border: none;
   outline: none;
+  
 }
 
 .izquierda {
@@ -35,7 +41,7 @@
 .derecha {
   border: 1px solid black;
   border-radius: 5px;
- padding: 5px;
+  padding: 5px;
   width: 35%;
   display: flex;
   justify-content: center;
@@ -43,6 +49,7 @@
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  position: relative;
 }
 
 .texto_resultado {
@@ -55,7 +62,9 @@
   width: 60%;
   display: flex;
   justify-content: center;
+  margin-top: 10px;
   gap: 20px;
+
 }
 
 .boton_encriptar {
@@ -92,8 +101,45 @@
 }
 
 .contenedor_copiar {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
+ position: absolute;
+ right: 5px;
+ bottom: 5px;
+}
+#boton_copiar {
+  display: none;
+}
+
+.texto-caracteres {
+  width: 60%;
+  height: 20px;
+  text-align: center;
+}
+
+.mensaje_temporal {
+  width: 30%;
+  position: absolute;
+  height: 25px;
+  top: -30px;
+  right: 0px;
+  background-color: #59A96A;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+}
+#mensaje_copiado {
+  display: none;
+}
+.mensaje_encriptado {
+  width: 40%;
+  position: absolute;
+  height: 25px;
+  top: -30px;
+  right: 0px;
+  background-color: #95190C;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+}
+#verificar_mensaje {
+  display: none;
 }
