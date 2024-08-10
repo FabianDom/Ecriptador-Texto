@@ -122,14 +122,16 @@ body {
 
 .mensaje_temporal {
   width: 30%;
+  padding: 1px;
   position: absolute;
   height: 25px;
   top: -30px;
   right: 0px;
-  background-color: #59A96A;
+  background-color: #5E9C76;
   color: white;
   text-align: center;
   border-radius: 5px;
+  align-items: center;
 }
 #mensaje_copiado {
   display: none;
@@ -146,5 +148,43 @@ body {
   border-radius: 5px;
 }
 #verificar_mensaje {
+  display: none;
+}
+
+.contenedor_imagenes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.imagen_resultado {
+  width: 250px;
+
+
+}
+
+.mensaje_inicial {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.imagen_loader{
+width: 50px;
+height: 45px;
+
+}
+#imagen_loader{
+  display: none;
+}
+
+.imagen_error{
+width: 50px;
+height: 45px;
+
+}
+#imagen_error {
   display: none;
 }

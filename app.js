@@ -1,3 +1,4 @@
+// Llaves de encriptacion
 let llavesEncriptacion = {
   a: "ai",
   e: "enter",
@@ -14,106 +15,97 @@ let llavesDesencriptacion = {
   ufat: "u",
 };
 
+// Variables Globales
+let textoUsuario = document.getElementById("texto_encriptador");
+let textoEncriptado = document.getElementById("texto-encriptado");
+let mensajeInicial = document.getElementById("mensaje_inicial");
+let imagenResultado = document.getElementById("imagen_resultado");
+let botonCopiarTexto = document.getElementById("boton_copiar");
+let mensajeSecundario = document.getElementById("mensaje_secundario");
+let imagenLoader = document.getElementById("imagen_loader");
+let imagenError = document.getElementById("imagen_error");
+let mensajeTemporal = document.getElementById("mensaje_copiado");
+let textoCaracteres = document.getElementById("texto-caracteres");
+let botonEncriptar = document.getElementById("boton_encriptar");
+let botonDesencriptar = document.getElementById("boton_desencriptar");
+
 let regex = /[A-Z0-9_\u00C0-\u00FF!\"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~]/;
 
 function encriptarTexto() {
-  // Obtener el texto ingresado por el usuario desde el campo de entrada
-  let textoUsuario = document.getElementById("texto_encriptador").value;
-  let textoUsuarioEncriptado = ""; // Variable para almacenar el texto encriptado
-
-  // Iterar sobre cada carácter del texto ingresado
-  for (let i = 0; i < textoUsuario.length; i++) {
-    let caracterObtenido = textoUsuario[i]; // Obtener el carácter actual
-
-    // Verificar si el carácter tiene una correspondencia en llavesEncriptacion
+  let texto = textoUsuario.value;
+  let textoUsuarioEncriptado = "";
+  for (let i = 0; i < texto.length; i++) {
+    let caracterObtenido = texto[i];
     if (llavesEncriptacion[caracterObtenido]) {
-      // Si hay correspondencia, añadir el valor encriptado correspondiente
       textoUsuarioEncriptado += llavesEncriptacion[caracterObtenido];
     } else {
-      // Si no hay correspondencia, añadir el carácter tal como está
       textoUsuarioEncriptado += caracterObtenido;
     }
   }
-  // Mostrar el texto encriptado.
-    let textoEncriptadoFinal = document.getElementById("texto-encriptado");
-    textoEncriptadoFinal.innerHTML = textoUsuarioEncriptado;
- 
-  limpiarBotonCopiar ();
+  textoEncriptado.innerHTML = textoUsuarioEncriptado;
+  limpiarBotonCopiar();
 
-
- 
-  // verificar si el texto se encuentra encriptado
-  let verficarTexto = document.getElementById("verificar_mensaje");
-  let botonCopiar = document.getElementById("boton_copiar");
   for (const propiedad in llavesDesencriptacion) {
-    if (textoUsuario.includes(propiedad)) {
-      textoEncriptadoFinal.innerHTML = '';
-      verficarTexto.innerHTML = "El texto esta encriptado";
-      if (verficarTexto) {
-        verficarTexto.style.display = 'block';
-        botonCopiar.style.display = 'none';
-      } else {
-        verficarTexto.style.display = 'none';
-      }
-    } 
+    if (texto.includes(propiedad)) {
+      textoEncriptado.innerHTML = "";
+      mensajeInicial.innerHTML = "El texto está encriptado";
+      mensajeInicial.style.display = "block";
+      imagenResultado.style.display = "block";
+      imagenError.style.display = "block";
+      botonCopiarTexto.style.display = "none";
+    }
   }
-   
 }
 
 function desencriptarTexto() {
-  // Obtener el texto ingresado por el usuario desde el campo de entrada
-  let textoUsuario = document.getElementById("texto_encriptador").value;
-  let textoUsuarioDesencriptado = textoUsuario; // Variable para almacenar el texto desencriptado
+  let texto = textoUsuario.value;
+  let textoUsuarioDesencriptado = texto;
 
-  // Iterar sobre cada propiedad en llavesDesencriptacion
   for (const propiedad in llavesDesencriptacion) {
-    let valorLlaveDesencriptada = llavesDesencriptacion[propiedad]; // Obtener el valor de las llaves de desencriptación
-    let coincidencias = new RegExp(propiedad, "g"); // Crear una expresión regular para encontrar todas las coincidencias de la llaves en el texto.
-
-    // Reemplazar todas las coincidencias de la clave en el texto por el valor de desencriptación
+    let valorLlaveDesencriptada = llavesDesencriptacion[propiedad];
+    let coincidencias = new RegExp(propiedad, "g");
     textoUsuarioDesencriptado = textoUsuarioDesencriptado.replace(
       coincidencias,
       valorLlaveDesencriptada
     );
   }
 
-  // Mostrar el texto desencriptado en el elemento HTML con id 'texto-encriptado'
-  
-  let textoDesencriptadoFinal = document.getElementById("texto-encriptado");
-  textoDesencriptadoFinal.innerHTML = textoUsuarioDesencriptado;
+  textoEncriptado.innerHTML = textoUsuarioDesencriptado;
+  limpiarBotonCopiar();
+}
 
-  // verificar si el texto se encuentra encriptado
-  let verficarTexto = document.getElementById("verificar_mensaje");
-  for (const propiedad in llavesDesencriptacion) {
-    if (textoUsuario.includes(propiedad)) {
-        verficarTexto.style.display = 'none';
-      
-    } 
-  }
-  limpiarBotonCopiar ();
+function mensajesIniciales() {
+  mensajeInicial.innerText = "Ningún mensaje fue encontrado";
+  mensajeInicial.style.display = "block";
+  mensajeSecundario.style.display = "block";
+  imagenResultado.style.display = "block";
+  imagenError.style.display = "none";
+}
+
+function actualizarCuadroTexto() {
+  mensajeInicial.innerText = "Esperando Mensaje";
+  mensajeInicial.style.display = "block";
+  imagenLoader.style.display = "block";
+  imagenResultado.style.display = "block";
+  mensajeSecundario.style.display = "block";
+  textoEncriptado.style.display = "none";
+  botonCopiarTexto.style.display = "none";
+  imagenError.style.display = "none";
 }
 
 function limpiarCampos() {
-  let botonCopiar = document.getElementById("boton_copiar");
-  let mensajeTemporal = document.getElementById("mensaje_copiado");
-  let resultadoTexto = document.getElementById("texto_encriptador").value;
-  let verficarTexto = document.getElementById("verificar_mensaje");
-  if (resultadoTexto.trim() === "") {
-    let limpiarTexto = document.getElementById("texto-encriptado");
-    limpiarTexto.innerHTML = "";
-    botonCopiar.style.display = "none";
+  if (textoUsuario.value.trim() === "") {
+    textoEncriptado.innerHTML = "";
+    botonCopiarTexto.style.display = "none";
     mensajeTemporal.style.display = "none";
-    verficarTexto.style.display = 'none';
-  } 
+    imagenLoader.style.display = "none";
+    mensajesIniciales();
+  }
 }
 
 function caracteresExcluidos() {
-  let textoUsuario = document.getElementById("texto_encriptador").value;
-  let textoCaracteres = document.getElementById("texto-caracteres");
-  let botonEncriptar = document.getElementById("boton_encriptar");
-  let botonDesencriptar = document.getElementById("boton_desencriptar");
-  if (regex.test(textoUsuario)) {
-    textoCaracteres.innerHTML = "No se permite mayusculas ni acentos";
+  if (regex.test(textoUsuario.value)) {
+    textoCaracteres.innerHTML = "No se permite mayúsculas ni acentos";
     botonEncriptar.disabled = true;
     botonDesencriptar.disabled = true;
   } else {
@@ -124,49 +116,94 @@ function caracteresExcluidos() {
 }
 
 async function botonCopiar() {
-  // Selecionar el id texto encriptado
-  let textoEncriptado = document.getElementById("texto-encriptado");
-  // Acceder a su valor
   let textoACopiar = textoEncriptado.innerHTML;
-  // Seleccionar id para mostrar mensaje temporal de texto copiado
-  let mensajeTemporal = document.getElementById("mensaje_copiado");
   try {
-    // Esperar que el texto se copie al portapapeles
     await navigator.clipboard.writeText(textoACopiar);
-    //Agregamos el mensaje que se quiere mostrar cuando el texto sea copiado y lo mostramos.
     mensajeTemporal.textContent = "Texto copiado";
     mensajeTemporal.style.display = "block";
     setTimeout(() => {
       mensajeTemporal.style.display = "none";
     }, 1500);
   } catch (error) {
-    console.error("Ocurrio un error al copiar el texto", error);
+    console.error("Ocurrió un error al copiar el texto", error);
   }
 }
 
-function limpiarBotonCopiar () {
-  let textoUsuario = document.getElementById("texto_encriptador").value;
-  let textoEncriptado = document.getElementById("texto-encriptado");
-  let botonCopiar = document.getElementById("boton_copiar");
-  if (textoUsuario.trim() === ""){
-    return
+function limpiarBotonCopiar() {
+  if (textoUsuario.value.trim() === "") {
+    return;
   }
-  if(textoEncriptado) {
-    botonCopiar.style.display = 'block';
+  if (textoEncriptado.innerHTML) {
+    botonCopiarTexto.style.display = "block";
   } else {
-    botonCopiar.style.display = 'none';
+    botonCopiarTexto.style.display = "none";
   }
 }
+
+function cuadroDeTexto() {
+  botonEncriptar.addEventListener("click", function () {
+    if (textoUsuario.value.trim() === "") {
+      mensajesIniciales();
+      imagenLoader.style.display = "none";
+    } else {
+      actualizarCuadroTexto();
+      imagenLoader.style.display = "block";
+      mensajeInicial.innerText = "Encriptando Mensaje";
+      imagenResultado.style.display = "block";
+      mensajeSecundario.style.display = "none";
+      textoEncriptado.style.display = "none";
+      botonCopiarTexto.style.display = "none";
+      imagenError.style.display = "none";
+
+      setTimeout(() => {
+        imagenLoader.style.display = "none";
+        mensajeInicial.style.display = "none";
+        imagenResultado.style.display = "none";
+        textoEncriptado.style.display = "block";
+        botonCopiarTexto.style.display = "block";
+        encriptarTexto();
+      }, 1500);
+    }
+  });
+
+  botonDesencriptar.addEventListener("click", function () {
+    if (textoUsuario.value.trim() === "") {
+      mensajesIniciales();
+      imagenLoader.style.display = "none";
+      return;
+    } else {
+      actualizarCuadroTexto();
+      imagenLoader.style.display = "block";
+      mensajeInicial.innerText = "Desencriptando Mensaje";
+      imagenResultado.style.display = "block";
+      mensajeSecundario.style.display = "none";
+      textoEncriptado.style.display = "none";
+      botonCopiarTexto.style.display = "none";
+      imagenError.style.display = "none";
+
+      setTimeout(() => {
+        imagenLoader.style.display = "none";
+        mensajeInicial.style.display = "none";
+        imagenResultado.style.display = "none";
+        textoEncriptado.style.display = "block";
+        botonCopiarTexto.style.display = "block";
+        desencriptarTexto();
+      }, 1500);
+    }
+  });
+}
+
+cuadroDeTexto();
 
 // Inicializar visibilidad al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
   limpiarCampos();
+  textoUsuario.addEventListener("input", caracteresExcluidos);
+  textoUsuario.addEventListener("input", limpiarCampos);
 });
-
 document
   .getElementById("texto_encriptador")
-  .addEventListener("input", caracteresExcluidos);
-
-document
-  .getElementById("texto_encriptador")
-  .addEventListener("input", limpiarCampos);
+  .addEventListener("input", function () {
+    textoEncriptado.innerHTML = "";
+    actualizarCuadroTexto();
+  });
