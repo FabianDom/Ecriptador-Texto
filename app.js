@@ -105,7 +105,7 @@ function limpiarCampos() {
 
 function caracteresExcluidos() {
   if (regex.test(textoUsuario.value)) {
-    textoCaracteres.innerHTML = "No se permite mayúsculas ni acentos";
+    textoCaracteres.innerHTML = "Solo minúsculas, sin acentos ni caracteres especiales.";
     botonEncriptar.disabled = true;
     botonDesencriptar.disabled = true;
   } else {

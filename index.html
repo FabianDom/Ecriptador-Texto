@@ -10,10 +10,15 @@
     <header>
         <img src="Assets/Logo.png" alt="logo-alura">
     </header>
-    <main>
-        <div class="contenedor">
+    <main class="contenedor">
         <div class="izquierda">
             <textarea class="textarea_estilo" name="texto" id="texto_encriptador" placeholder="Ingrese el texto aqui" cols="50" rows="20"></textarea>
+            <p class="texto-caracteres" id="texto-caracteres"></p>
+        <div class="contenedor_botones">
+            <button class="boton_encriptar" onclick="encriptarTexto()" id="boton_encriptar">Encriptar</button>
+            <button class="boton_desencriptar" onclick="desencriptarTexto()" id="boton_desencriptar">Desencriptar</button>
+            
+        </div>
         </div>
         <div class="derecha">
             <div id="mensaje_copiado" class="mensaje_temporal"alt="" alt=""></div>
@@ -21,21 +26,15 @@
             <div class="contenedor_imagenes">
                 <div><img class="imagen_resultado" id="imagen_resultado" src="/Assets/Muñeco.png" alt=""></div>
                 <div><p class="mensaje_inicial" id="mensaje_inicial">Ningun mensaje fue encontrado</p></div>
-                <div><p id="mensaje_secundario">Ingresa el texto que desees encriptar o desencriptar.</p></div>
+                <div><p id="mensaje_secundario" class="mensaje_secundario">Ingresa el texto que desees encriptar o desencriptar.</p></div>
                 <div><img id="imagen_loader" class="imagen_loader" src="/Assets/1484.gif" alt="" ></div>
                 <div><img id="imagen_error" class="imagen_error" src="/Assets/icons8-laptop-error-64.png" alt="" ></div>
             </div>
            
             
-            <div class="contenedor_copiar" onclick="botonCopiar();" id="boton_copiar"><button class="boton_copiar" >Copiar</button></div>  
+            <div class="contenedor_copiar" onclick="botonCopiar();" id="boton_copiar"><button class="boton_copiar" ><img src="./Assets/icons8-copiar-64.png" alt="" width="30"></button></div>  
         </div>
-    </div>
-    <p class="texto-caracteres" id="texto-caracteres"></p>
-        <div class="contenedor_botones">
-            <button class="boton_encriptar" onclick="encriptarTexto()" id="boton_encriptar">Encriptar</button>
-            <button class="boton_desencriptar" onclick="desencriptarTexto()" id="boton_desencriptar">Desencriptar</button>
-            
-        </div>
+    
     </main>
 </body>
 <script src="app.js"></script>
