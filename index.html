@@ -13,12 +13,19 @@
     <main class="contenedor">
         <div class="izquierda">
             <textarea class="textarea_estilo" name="texto" id="texto_encriptador" placeholder="Ingrese el texto aqui" cols="50" rows="20"></textarea>
-            <p class="texto-caracteres" id="texto-caracteres"></p>
-        <div class="contenedor_botones">
-            <button class="boton_encriptar" onclick="encriptarTexto()" id="boton_encriptar">Encriptar</button>
-            <button class="boton_desencriptar" onclick="desencriptarTexto()" id="boton_desencriptar">Desencriptar</button>
+            <div class="contenedor_izquierda">
+                <div class="contenedor_caracteres">
+                    <img id="imagen_info" class="imagen_info" src="/Assets/icons8-información-50.png" alt="">
+                    <p class="texto-caracteres" id="texto-caracteres"></p>
+                </div>
+                
+            <div class="contenedor_botones">
+                <button class="boton_encriptar" onclick="encriptarTexto()" id="boton_encriptar">Encriptar</button>
+                <button class="boton_desencriptar" onclick="desencriptarTexto()" id="boton_desencriptar">Desencriptar</button>
+                
+            </div>
+            </div>
             
-        </div>
         </div>
         <div class="derecha">
             <div id="mensaje_copiado" class="mensaje_temporal"alt="" alt=""></div>

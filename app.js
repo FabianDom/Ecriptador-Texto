@@ -24,6 +24,7 @@ let botonCopiarTexto = document.getElementById("boton_copiar");
 let mensajeSecundario = document.getElementById("mensaje_secundario");
 let imagenLoader = document.getElementById("imagen_loader");
 let imagenError = document.getElementById("imagen_error");
+let imagenInfo = document.getElementById("imagen_info");
 let mensajeTemporal = document.getElementById("mensaje_copiado");
 let textoCaracteres = document.getElementById("texto-caracteres");
 let botonEncriptar = document.getElementById("boton_encriptar");
@@ -105,10 +106,12 @@ function limpiarCampos() {
 
 function caracteresExcluidos() {
   if (regex.test(textoUsuario.value)) {
+    imagenInfo.style.display = 'block'
     textoCaracteres.innerHTML = "Solo minúsculas, sin acentos ni caracteres especiales.";
     botonEncriptar.disabled = true;
     botonDesencriptar.disabled = true;
   } else {
+    imagenInfo.style.display = 'none'
     textoCaracteres.innerHTML = "";
     botonEncriptar.disabled = false;
     botonDesencriptar.disabled = false;
@@ -197,6 +200,7 @@ cuadroDeTexto();
 
 // Inicializar visibilidad al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
+  imagenInfo.style.display = 'none'
   limpiarCampos();
   textoUsuario.addEventListener("input", caracteresExcluidos);
   textoUsuario.addEventListener("input", limpiarCampos);
