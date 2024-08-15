@@ -21,6 +21,7 @@ let textoEncriptado = document.getElementById("texto-encriptado");
 let mensajeInicial = document.getElementById("mensaje_inicial");
 let imagenResultado = document.getElementById("imagen_resultado");
 let botonCopiarTexto = document.getElementById("boton_copiar");
+let botonLimpiarTexto = document.getElementById("boton_reiniciar");
 let mensajeSecundario = document.getElementById("mensaje_secundario");
 let imagenLoader = document.getElementById("imagen_loader");
 let imagenError = document.getElementById("imagen_error");
@@ -143,6 +144,18 @@ function limpiarBotonCopiar() {
   }
 }
 
+function limpiarTexto () {
+  if (textoUsuario.value.trim() != "") {
+    textoUsuario.value = '';
+    textoCaracteres.style.display = 'none';
+    limpiarCampos()
+  }
+ 
+}
+function mostrarBotonLimpiar() {
+  botonLimpiarTexto.style.display = "block";
+}
+
 function cuadroDeTexto() {
   botonEncriptar.addEventListener("click", function () {
     if (textoUsuario.value.trim() === "") {
@@ -201,9 +214,11 @@ cuadroDeTexto();
 // Inicializar visibilidad al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
   imagenInfo.style.display = 'none'
+  botonLimpiarTexto.style.display = 'none'
   limpiarCampos();
   textoUsuario.addEventListener("input", caracteresExcluidos);
   textoUsuario.addEventListener("input", limpiarCampos);
+  textoUsuario.addEventListener("input", mostrarBotonLimpiar);
 });
 document
   .getElementById("texto_encriptador")

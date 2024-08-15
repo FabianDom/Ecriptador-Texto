@@ -20,10 +20,11 @@
 header {
   box-sizing: border-box;
   width: 65%;
-  padding: 20px 20px;
+  padding: 20px 20px; 
+  box-sizing: border-box;
 }
 body {
-  background-color: #e5f4e3;
+  background-color: #E7F0DC;
 }
 
 .contenedor {
@@ -35,15 +36,24 @@ body {
 }
 
 .textarea_estilo {
-  background-color: #e5f4e3;
+  width: 95%;
+  background-color: #E7F0DC;
   border: none;
   resize: none;
   font-family: var(--fuente-principal);
-  font-size: 32px;
+  font-size: 24px;
 }
 .textarea_estilo:focus {
   border: none;
   outline: none;
+}
+
+.boton_reiniciar{
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  border: none;
+  background-color: transparent;
 }
 
 .izquierda {
@@ -51,9 +61,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .derecha {
+  background-color: #e5f4e3;
   border-radius: 5px;
   padding: 0 10px;
   width: 35%;
