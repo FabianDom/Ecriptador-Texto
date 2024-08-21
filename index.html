@@ -12,8 +12,8 @@
     </header>
     <main class="contenedor">
         <div class="izquierda">
-            <textarea class="textarea_estilo" name="texto" id="texto_encriptador" placeholder="Ingrese el texto aqui" cols="50" rows="30"></textarea>
-            <button class="boton_reiniciar" id="boton_reiniciar" onclick="limpiarTexto()"><img src="Assets/icons8-reiniciar-50.png" alt="" width="30"></button>
+            <textarea class="textarea_estilo" name="texto" id="texto_encriptador" placeholder="Ingrese el texto aqui"></textarea>
+            <button class="boton_reiniciar" id="boton_reiniciar" onclick="limpiarTexto()"><img src="Assets/icons8-reiniciar-50.png" alt="" width="35"></button>
             <div class="contenedor_izquierda">
                 <div class="contenedor_caracteres">
                     <img id="imagen_info" class="imagen_info" src="/Assets/icons8-información-50.png" alt="">
@@ -29,18 +29,20 @@
             
         </div>
         <div class="derecha">
+            <div class="texto_resultado"><p  id="texto-encriptado"></p></div> 
             <div id="mensaje_copiado" class="mensaje_temporal"alt="" alt=""></div>
-            <div class="texto_resultado"><p  id="texto-encriptado"></p></div>
             <div class="contenedor_imagenes">
                 <div><img class="imagen_resultado" id="imagen_resultado" src="/Assets/Muñeco.png" alt=""></div>
                 <div><p class="mensaje_inicial" id="mensaje_inicial">Ningun mensaje fue encontrado</p></div>
                 <div><p id="mensaje_secundario" class="mensaje_secundario">Ingresa el texto que desees encriptar o desencriptar.</p></div>
                 <div><img id="imagen_loader" class="imagen_loader" src="/Assets/1484.gif" alt="" ></div>
                 <div><img id="imagen_error" class="imagen_error" src="/Assets/icons8-laptop-error-64.png" alt="" ></div>
+                
             </div>
            
             
-            <div class="contenedor_copiar" onclick="botonCopiar();" id="boton_copiar"><button class="boton_copiar" ><img src="./Assets/icons8-copiar-64.png" alt="" width="30"></button></div>  
+            <div class="contenedor_copiar" onclick="botonCopiar();" id="boton_copiar"><button class="boton_copiar" ><img src="./Assets/icons8-copiar-64.png" alt="" width="30"></button></div> 
+            
         </div>
     
     </main>

@@ -147,13 +147,23 @@ function limpiarBotonCopiar() {
 function limpiarTexto () {
   if (textoUsuario.value.trim() != "") {
     textoUsuario.value = '';
-    textoCaracteres.style.display = 'none';
+    
     limpiarCampos()
+    setTimeout(() => {
+      botonLimpiarTexto.style.display = "none";
+     }, 300); 
+     caracteresExcluidos()
   }
  
 }
-function mostrarBotonLimpiar() {
-  botonLimpiarTexto.style.display = "block";
+function mostrarBotonLimpiar() { 
+  if(textoUsuario.value.trim() ==='') {
+    botonLimpiarTexto.style.display = "none";
+  }
+  else {
+    botonLimpiarTexto.style.display = "block";
+  }
+  
 }
 
 function cuadroDeTexto() {
