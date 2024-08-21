@@ -3,9 +3,9 @@
 :root {
   --fuente-principal: "Bree Serif", serif;
   --color-primario: #0a3871;
-  --color-secundario: #0a3871;
-  --color-terciario: #0a3871;
-  --color-cuarternario: #0a3871;
+  --color-secundario: #E7F0DC;
+  --color-terciario: #e5f4e3;
+  --color-cuarternario: #FFFF;
 }
 
 * {
@@ -14,24 +14,24 @@
 }
 
 #texto_encriptador::placeholder {
-  color: #0a3871;
-  font-size: 24px;
+  color: var(--color-primario);
+  font-size: 1.5rem;
 }
 header {
   box-sizing: border-box;
   width: 65%;
-  padding: 20px 20px; 
+  padding: 1.25rem 1.25rem; 
   box-sizing: border-box;
 }
 body {
-  background-color: #E7F0DC;
+  background-color: var(--color-secundario);
   height: 100vh;
 }
 
 .contenedor {
-  padding: 0 20px 0 5%;
+  padding: 0 1.25rem 0 1.25rem;
   display: flex;
-  gap: 10px;
+  gap: 0.625rem;
   box-sizing: border-box;
   max-height: 80vh;
 }
@@ -39,11 +39,11 @@ body {
 .textarea_estilo {
   width: 95%;
   height: 67vh;
-  background-color: #E7F0DC;
+  background-color: var(--color-secundario);
   border: none;
   resize: none;
   font-family: var(--fuente-principal);
-  font-size: 24px;
+  font-size: 1.5rem;
   
 }
 .textarea_estilo:focus {
@@ -53,8 +53,8 @@ body {
 
 .boton_reiniciar{
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 0.125rem;
+  right: 0.125rem;
   border: none;
   background-color: transparent;
   transition: transform 0.3s ease; 
@@ -77,9 +77,9 @@ body {
 }
 
 .derecha {
-  background-color: #e5f4e3;
-  border-radius: 5px;
-  padding: 0 10px;
+  background-color: var(--color-terciario);
+  border-radius: 0.313rem;
+  padding: 0 0.625rem;
   width: 35%;
   height: 90vh;
   display: flex;
@@ -89,7 +89,7 @@ body {
   -moz-box-shadow: 0px 10px 5px 15px rgba(0, 0, 0, 0.06);
   box-shadow: 0px 10px 5px 15px rgba(0, 0, 0, 0.06);
   position: relative;
-  margin-top: -60px;
+  margin-top: -3.75rem;
 }
 
 .texto_resultado {
@@ -98,7 +98,7 @@ body {
   word-wrap: break-word; /* Permite saltos de línea en palabras largas */
   font-family: var(--fuente-principal);
   font-style: normal;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 .contenedor_izquierda {
   width: 100%;
@@ -113,18 +113,18 @@ body {
   width: 65%;
   display: flex;
   justify-content: flex-start;
-  margin-top: 10px;
-  gap: 50px;
+  margin-top: 0.625rem;
+  gap: 3.125rem;
   box-sizing: border-box;
 }
 
 .boton_encriptar {
   width: 40%;
-  padding: 10px;
-  background-color: #0a3871;
-  border-radius: 8px;
-  color: white;
-  border: 1px solid #0a3871;
+  padding: 0.625rem;
+  background-color: var(--color-primario);
+  border-radius: 0.5rem;
+  color: var(--color-cuarternario);
+  border: 0.063rem solid var(--color-primario);
   cursor: pointer;
   font-family: var(--fuente-principal);
   font-size: 1rem;
@@ -135,18 +135,18 @@ body {
 }
 .boton_encriptar:disabled {
   background-color: grey;
-  color: white;
+  color: var(--color-cuarternario);
   cursor: not-allowed;
   border: grey;
 }
 
 .boton_desencriptar {
   width: 40%;
-  padding: 10px;
-  background-color: #0a3871;
-  border-radius: 8px;
-  color: white;
-  border: 1px solid #0a3871;
+  padding: 0.625rem;
+  background-color: var(--color-primario);
+  border-radius: 0.5rem;
+  color: var(--color-cuarternario);
+  border: 0.063rem solid var(--color-primario);
   cursor: pointer;
   font-family: var(--fuente-principal);
   font-size: 1rem;
@@ -157,15 +157,15 @@ body {
 }
 .boton_desencriptar:disabled {
   background-color: grey;
-  color: white;
+  color: var(--color-cuarternario);
   cursor: not-allowed;
   border: grey;
 }
 
 .contenedor_copiar {
   position: absolute;
-  right: 5px;
-  bottom: 5px;
+  right: 0.313rem;
+  bottom: 0.313rem;
 }
 #boton_copiar {
   display: none;
@@ -177,10 +177,10 @@ body {
 
 .contenedor_caracteres {
   width: 65%;
-  height: 20px;
+  height: 1.25rem;
   display: flex;
   justify-content: flex-start;
-  gap: 5px;
+  gap: 0.313rem;
   box-sizing: border-box;
 }
 
@@ -190,22 +190,22 @@ body {
   color: #A02334;
 }
 .imagen_info {
-  width: 15px;
-  height: 15px;
+  width: 0.938rem;
+  height: 0.938rem;
 }
 
 .mensaje_temporal {
   width: 30%;
-  padding: 1px;
+  padding: 0.063rem;
   position: absolute;
-  height: 20px;
-  top: -25px;
-  right: 0px;
+  height: 1.25rem;
+  top: -1.563rem;
+  right: 0rem;
   background-color: #5e9c76;
   color: white;
   text-align: center;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   font-family: var(--fuente-principal);
   font-size: 0.8rem;
 
@@ -213,18 +213,7 @@ body {
 #mensaje_copiado {
   display: none;
 }
-.mensaje_encriptado {
-  width: 40%;
-  position: absolute;
-  height: 25px;
-  top: -30px;
-  right: 0px;
-  background-color: #95190c;
-  color: white;
-  text-align: center;
-  border-radius: 5px;
-  font-family: var(--fuente-principal);
-}
+
 
 .contenedor_imagenes {
   display: flex;
@@ -236,12 +225,12 @@ body {
 }
 
 .imagen_resultado {
-  width: 250px;
+  width: 15.625rem;
 }
 
 .mensaje_inicial {
   text-align: center;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
   font-family: var(--fuente-principal);
   position: relative;
@@ -250,7 +239,7 @@ body {
 
 .mensaje_secundario {
   text-align: center;
-  font-size: 15px;
+  font-size: 0.938rem;
   font-family: var(--fuente-principal);
   position: relative;
   z-index: 2;
@@ -258,10 +247,10 @@ body {
 
 
 .imagen_loader {
-  width: 50px;
+  width: 3.125rem;
   position: absolute;
   transform: translate(-50%); 
-  margin-top: -14px;
+  margin-top: -0.875rem;
   }
   
 
@@ -270,8 +259,11 @@ body {
 }
 
 .imagen_error {
-  width: 50px;
-  height: 45px;
+  width: 3.125rem;
+  height: 2.813rem;
+  position: absolute;
+  transform: translate(-50%); 
+  margin-top: -0.275rem;
 }
 #imagen_error {
   display: none;
@@ -287,11 +279,39 @@ body {
     width: 100%; /* Ocupa todo el ancho disponible */
   }
   .derecha {
-    margin-top: 20px; /* Espacio entre contenedores */
+    margin-top: 1.875rem; /* Espacio entre contenedores */
+    height: 35vh;
   }
   .textarea_estilo {
     width: 90%;
     height: 40vh;
+  }
+  .contenedor_botones, .contenedor_caracteres{
+    width: 90%;
+  }
+  .boton_encriptar, .boton_desencriptar{
+    width: 50%;
+  }
+  .imagen_resultado {
+    width: 12.5rem;
+  }
+  .mensaje_inicial{
+    font-size: 1.25rem;
+  }
+  .mensaje_secundario{
+    font-size: 0.938rem;
+  }
+  .imagen_loader{
+    width: 2.5rem;
+    margin-top: -0.625rem;
+   }
+   .texto-caracteres {
+    font-size: 1rem;
+    
+  }
+  .mensaje_temporal {
+    width: 20%;
+  
   }
 }
 @media (min-width: 390px) and (max-width: 767px) {
@@ -304,15 +324,15 @@ body {
     width: 100%; /* Ocupa todo el ancho disponible */
   }
   .derecha {
-    margin-top: 20px; /* Espacio entre contenedores */
+    margin-top: 1.875rem; /* Espacio entre contenedores */
     height: 35vh;
   }
   .textarea_estilo {
-    width: 90%;
+    width: 88%;
     height: 30vh;
   }
   .imagen_resultado {
-    width: 200px;
+    width: 12.5rem;
   }
   .contenedor_botones, .contenedor_caracteres{
     width: 90%;
@@ -321,15 +341,69 @@ body {
     width: 50%;
   }
   .mensaje_inicial{
-    font-size: 15px;
+    font-size: 0.938rem;
   }
   .mensaje_secundario{
-    font-size: 10px;
+    font-size: 0.625rem;
   }
 .imagen_loader{
- width: 40px;
- margin-top: -10px;
+ width: 2.5rem;
+ margin-top: -0.625rem;
 }
+  .boton_reiniciar {
+    position: absolute;
+    top: 0.0631rem;
+    right: 0rem;
+  }
+
+}
+
+@media (min-width: 360px) and (max-width: 389px) {
   
+  .contenedor {
+    flex-direction: column;
+    align-items: center; /* Centrar los elementos */
+  }
+  .izquierda, .derecha {
+    width: 100%; /* Ocupa todo el ancho disponible */
+  }
+  .derecha {
+    margin-top: 1.875rem; /* Espacio entre contenedores */
+    height: 35vh;
+  }
+  .textarea_estilo {
+    width: 88%;
+    height: 30vh;
+  }
+  .imagen_resultado {
+    width: 12.5rem;
+  }
+  .contenedor_botones, .contenedor_caracteres{
+    width: 90%;
+  }
+  .boton_encriptar, .boton_desencriptar{
+    width: 50%;
+  }
+  .mensaje_inicial{
+    font-size: 0.8rem;
+  }
+  .mensaje_secundario{
+    font-size: 0.5rem;
+  }
+.imagen_loader{
+ width: 2.0rem;
+ margin-top: -0.565rem;
+}
+.imagen_error {
+  width: 2.125rem;
+  height: 1.813rem;
+ 
+}
+  .boton_reiniciar {
+    position: absolute;
+    top: 0.0631rem;
+    right: 0rem;
+  }
+
 }
 
